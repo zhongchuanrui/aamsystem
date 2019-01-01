@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aim.dao.NewsDao">
+
+	<insert id="insertNews" useGeneratedKeys="true" keyProperty="news_id"
+		parameterType="com.aim.pojo.News">
+		insert into
+		news(news_title,news_time,news_content,news_person,news_state)
+		values(#{news_title},#{news_time},#{news_content},#{news_person},1)
+	</insert>
+
+	<select id="getAllNews" resultType="com.aim.pojo.News">
+		select *
+		from news
+	</select>
+
+	<select id="getshowNews" resultType="com.aim.pojo.News">
+		select *
+		from news where
+		news_state = 1
+	</select>
+
+	<select id="getblankNews" resultType="com.aim.pojo.News">
+		select
+		* from news where
+		news_state = 2
+	</select>
+	
+	<delete id="deleteNews">
+	delete from  news  where news_id=#{0}  
+	</delete>
+	
+	<update id="modifyNews">
+		update news set news_state=#{0} where news_id=#{1}
+	</update>
+	
+	<select id="getNewCount" resultType="int">
+		select count(*) from news where news_state = 1
+	</select>
+	
+	<select id="usergetAllNews" resultType="com.aim.pojo.News">
+		select * from news where news_state = 1 limit #{0},10
+	</select>
+
+</mapper>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aim.dao.AlumnusDao">
+
+	<select id="getAlumnus" resultType="com.aim.pojo.Alumnus">
+		select * from alumnus where
+		alumnus_state > 1
+	</select>
+
+	<select id="getSearchAlumnus" resultType="com.aim.pojo.Alumnus"
+		parameterType="com.aim.pojo.Alumnus">
+		select * from alumnus
+		where alumnus_state > 1
+		<if test="alumnus_name !=''">
+			and alumnus_name = #{alumnus_name}
+		</if>
+		<if test="alumnus_telephone !=''">
+			and alumnus_telephone = #{alumnus_telephone}
+		</if>
+		<if test="alumnus_session !=''">
+			and alumnus_session = #{alumnus_session}
+		</if>
+		<if test="alumnus_graduationtime !=''">
+			and alumnus_graduationtime = #{alumnus_graduationtime}
+		</if>
+	</select>
+
+	<select id="getNewAlumnus" resultType="com.aim.pojo.Alumnus">
+		select * from alumnus
+		where alumnus_state = 1
+	</select>
+
+	<update id="modifyState">
+		update alumnus set alumnus_state=2 where alumnus_id=#{0}
+	</update>
+
+	<select id="getUserSearchAlumnus" resultType="com.aim.pojo.Alumnus"
+		parameterType="java.util.Map">
+		select * from alumnus where alumnus_id > 0
+
+		<if test="alumnus_session !=''">
+			and alumnus_session =#{alumnus_session}
+		</if>
+
+		<if test="alumnus_academy !=''">
+			and alumnus_academy =#{alumnus_academy}
+		</if>
+
+		<if test="alumnus_major !=''">
+			and alumnus_major =#{alumnus_major}
+		</if>
+
+		<if test="alumnus_class !=''">
+			and alumnus_class =#{alumnus_class}
+		</if>
+		<if test="alumnus_address !=''">
+			and alumnus_address like CONCAT('%', #{alumnus_address},
+			'%')
+		</if>
+
+		<if test="alumnus_name !=''">
+			and alumnus_name like CONCAT('%', #{alumnus_name}, '%')
+		</if>
+
+		<if test="alumnus_workplace !=''">
+			and alumnus_workplace like CONCAT('%',
+			#{alumnus_workplace}, '%')
+		</if>
+		limit #{currpage},10
+	</select>
+
+	<select id="getAlumnusCount" resultType="int" parameterType="java.util.Map">
+		select count(*) from alumnus where alumnus_id > 0
+
+		<if test="alumnus_session !=''">
+			and alumnus_session =#{alumnus_session}
+		</if>
+
+		<if test="alumnus_academy !=''">
+			and alumnus_academy =#{alumnus_academy}
+		</if>
+
+		<if test="alumnus_major !=''">
+			and alumnus_major =#{alumnus_major}
+		</if>
+
+		<if test="alumnus_class !=''">
+			and alumnus_class =#{alumnus_class}
+		</if>
+		<if test="alumnus_address !=''">
+			and alumnus_address like CONCAT('%', #{alumnus_address},'%')
+		</if>
+
+		<if test="alumnus_name !=''">
+			and alumnus_name like CONCAT('%', #{alumnus_name}, '%')
+		</if>
+
+		<if test="alumnus_workplace !=''">
+			and alumnus_workplace like CONCAT('%',#{alumnus_workplace}, '%')
+		</if>
+	</select>
+
+</mapper>

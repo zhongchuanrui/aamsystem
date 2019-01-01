@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aim.dao.ActivityDao">
+
+	<select id="getAllActivity" resultType="com.aim.pojo.Alumnisactivity">
+		select * from alumniactivity where activity_state !=  1
+	</select>
+	
+	<select id="getApplyActivity" resultType="com.aim.pojo.Alumnisactivity">
+		select * from alumniactivity where activity_state =1
+	</select>
+	
+	<select id="getPrepareActivity" resultType="com.aim.pojo.Alumnisactivity">
+		select * from alumniactivity where activity_state =2
+	</select>
+	
+	<select id="getProgressActivity" resultType="com.aim.pojo.Alumnisactivity">
+		select * from alumniactivity where activity_state =2
+	</select> 
+	
+	<select id="getStopActivity" resultType="com.aim.pojo.Alumnisactivity">
+		select * from alumniactivity where activity_state =3
+	</select>
+	
+	<update id="modifyActivity">
+	update alumniactivity set activity_proposer=#{0}, activity_replyaremark=#{1}, activity_state=#{2} where activity_id=#{3}
+	</update>
+	
+	<delete id="deleteActivity">
+	delete from alumniactivity where activity_id =#{0}
+	</delete>
+
+</mapper>

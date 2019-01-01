@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aim.dao.AlumnusAssociationDao">
+
+	<insert id="insertAssociation" useGeneratedKeys="true"
+		keyProperty="association_id" parameterType="com.aim.pojo.Alumniassociation">
+		insert into
+		alumniassociation(association_name,association_contactman,association_phone,association_createtime,
+		association_province,association_address,association_attribute,association_about,
+		association_chairman,association_vicechairman,association_number,
+		association_work,association_duty)
+		values(#{association_name},#{association_contactman},#{association_phone},#{association_createtime},
+		#{association_province},#{association_address},#{association_attribute},#{association_about},#{association_chairman},#{association_vicechairman},
+		0,#{association_work},#{association_duty})
+	</insert>
+	
+	<select id="getAllAssociation" resultType="com.aim.pojo.Alumniassociation">
+	select * from alumniassociation
+	</select>
+	
+	<select id="getSearchAssociation" resultType="com.aim.pojo.Alumniassociation">
+	select * from alumniassociation where association_province =#{0}
+	</select>
+	
+
+</mapper>

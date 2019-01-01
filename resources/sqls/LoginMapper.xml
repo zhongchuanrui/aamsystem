@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aim.dao.LoginDao">
+
+	<select id="checkAdmin" resultType="com.aim.pojo.Admin">
+		select *
+		from admin where admin_name=#{0} and admin_password=#{1}
+	</select>
+
+	<select id="checkUser" resultType="com.aim.pojo.Alumnus">
+		select
+		* from alumnus where alumnus_nickname=#{0} and alumnus_password=#{1}
+	</select>
+
+	<select id="getPassword" resultType="string">
+		select
+		admin_password from admin where admin_name=#{0}
+	</select>
+
+	<update id="modifyPassword">
+		update admin set admin_password=#{0} where admin_name=#{1}
+	</update>
+
+	<update id="modifyAdminInfo" parameterType="com.aim.pojo.Admin">
+		update admin set admin_age=#{admin_age},admin_sex=#{admin_sex},
+		admin_phone=#{admin_phone} where admin_name=#{admin_name}
+	</update>
+
+	<select id="getAdmin" resultType="com.aim.pojo.Admin">
+		select *
+		from admin where admin_name=#{0}
+	</select>
+
+	<select id="getAllAdmin" resultType="com.aim.pojo.Admin">
+		select
+		* from admin
+	</select>
+
+	<update id="modifylogintime" parameterType="com.aim.pojo.Admin">
+		update admin set admin_logintime=#{admin_logintime} where
+		admin_name=#{admin_name}
+	</update>
+
+	<select id="getNickname" resultType="com.aim.pojo.Admin">
+		select
+		count(*) from alumnus where alumnus_nickname=#{0}
+	</select>
+
+	<insert id="insertAlumnus" useGeneratedKeys="true" keyProperty="alumnus_id"
+		parameterType="com.aim.pojo.Alumnus">
+		insert into alumnus
+		(alumnus_nickname,alumnus_password,alumnus_name,alumnus_registertime,alumnus_session,alumnus_sex,alumnus_telephone,alumnus_state)
+		values(#{alumnus_nickname},#{alumnus_password},#{alumnus_name},#{alumnus_registertime},#{alumnus_session},#{alumnus_sex},#{alumnus_telephone},1)
+	</insert>
+</mapper>

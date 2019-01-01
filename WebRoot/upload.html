@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript">
+ function aa(){
+	 alert("aa");
+ }
+</script>
+</head>
+<body style="padding: 50px">
+	选择文件
+	<form action="http://localhost:8080/aamsystem/upload-file" method="post" enctype="multipart/form-data">
+		<input type="file" name="file" /><br>
+		<button type="submit" onclick="aa()">上传</button>
+	</form>
+</body>
+</html>

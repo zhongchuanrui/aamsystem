@@ -1,0 +1,297 @@
+<!DOCTYPE html >
+<html>
+
+<head>
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link href="assets/css/codemirror.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/ace.min.css" />
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/wangEditor2css/css/wangEditor.min.css" />
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="assets/js/typeahead-bs2.min.js"></script>
+	<script src="assets/layer/layer.js"></script>
+	<script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="assets/js/ace-elements.min.js"></script>
+	<script src="assets/js/ace.min.js"></script>
+	<script src="assets/laydate/laydate.js"></script>
+	<script src="js/wangEditor.min.js"></script>
+	<title>校友会创建</title>
+</head>
+<body>
+	<div class="margin clearfix">
+		<div class="stystems_style">
+			<div class="tabbable">
+				<ul class="nav nav-tabs" id="myTab">
+					<li class="active"><a data-toggle="tab" href="#home"><i
+							class="green fa fa-home bigger-110"></i>&nbsp;创建地方校友会</a></li>
+
+				</ul>
+
+				<div class="tab-content">
+					<div id="home" class="tab-pane active">
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>校友会名字： </label>
+							<div class="col-sm-9">
+								<input type="text" name="校友会名字" id="association_name"
+									placeholder="该校有会名称" value="" class="col-xs-10 ">
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>校友会所在省： </label>
+							<div class="col-sm-9">
+							<select name=""  style="margin-left:12px;padding-left:0px" id="association_province" class="col-xs-10">
+							<option value="广东省">广东省</option>
+							<option value="北京市">北京市</option>
+							<option value="天津市">天津市</option>
+							<option value="上海市">上海市</option>
+							<option value="重庆市">重庆市</option>
+							<option value="河北省">河北省</option>
+							<option value="河南省">河南省</option>
+							<option value="云南省">云南省</option>
+							<option value="辽宁省">辽宁省</option>
+							<option value="黑龙江省">黑龙江省</option>
+							<option value="湖南省">湖南省</option>
+							<option value="安徽省">安徽省</option>
+							<option value="山东省">山东省</option>
+							<option value="新疆维吾尔">新疆维吾尔</option>
+							<option value="江苏省">江苏省</option>
+							<option value="浙江省">浙江省</option>
+							<option value="江西省">江西省</option>
+							<option value="湖北省">湖北省</option>
+							<option value="广西壮族">广西壮族</option>
+							<option value="甘肃省">甘肃省</option>
+							<option value="山西省">山西省</option>
+							<option value="内蒙古">内蒙古</option>
+							<option value="陕西省">陕西省</option>
+							<option value="吉林省">吉林省</option>
+							<option value="福建省">福建省</option>
+							<option value="贵州省">贵州省</option>
+							<option value="青海省">青海省</option>
+							<option value="西藏">西藏</option>
+							<option value="四川省">四川省</option>
+							<option value="宁夏回族">宁夏回族</option>
+							<option value="海南省">海南省</option>
+							<option value="台湾省">台湾省</option>
+							<option value="香港特别行政区">香港特别行政区</option>
+							<option value="澳门特别行政区">澳门特别行政区</option>
+							</select>								
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>地址： </label>
+							<div class="col-sm-9">
+								<input type="text" name="" id="association_address"
+									placeholder="请输入校友会的详细地址" value="" class="col-xs-10">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>会长： </label>
+							<div class="col-sm-9">
+								<input type="text" name="会长" id="association_chairman"
+									placeholder="会长名字" value="" class="col-xs-10">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>副会长： </label>
+							<div class="col-sm-9">
+								<input type="text" name="副会长" id="association_vicechairman"
+									placeholder="副会长名字可多个,用逗号隔开" value="" class="col-xs-10">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>校友会属性： </label>
+							<div class="col-sm-9">
+								<input type="text" name="校友会属性" id="association_attribute"
+									placeholder="校友会属性" value="" class="col-xs-10">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>权利： </label>
+							<div class="col-sm-9">
+								<input type="text" name="权利" id="association_duty"
+									placeholder="校友有的权利" value="" class="col-xs-10">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>职责： </label>
+							<div class="col-sm-9">
+								<input type="text" name="职责" id="association_work"
+									placeholder="校友会的职责" value="" class="col-xs-10">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>联系人： </label>
+							<div class="col-sm-9">
+								<input type="text" name="联系人" id="association_contactman"
+									placeholder="该校友会的联系人" value="" class="col-xs-10">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>联系电话： </label>
+							<div class="col-sm-9">
+								<input type="text" name="联系电话" id="association_phone"
+									placeholder="校友会的常用电话" value="" class="col-xs-10">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>创建时间： </label>
+							<div class="col-sm-9">
+								<input class="inline laydate-icon" name="创建时间"
+									id="association_createtime" style="margin-left: 10px;">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-2 control-label no-padding-right"
+								for="form-field-1"><i>*</i>简介：</label>
+							<div class="col-sm-9">
+								<textarea class="form-control" id="association_about" rows="4"></textarea>
+							</div>
+						</div>
+						<div class="Button_operation">
+							<button onclick="check_info();" class="btn btn-primary radius"
+								type="submit">
+								<i class="fa fa-save "></i>&nbsp;创建
+							</button>
+
+							<button onclick="clickreset();" class="btn btn-default radius"
+								type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+
+						</div>
+					</div>
+					<div id="profile" class="tab-pane "></div>
+					<div id="dropdown" class="tab-pane"></div>
+					<div id="other" class="tab-pane">
+						<div class="form-group">
+							<label class="col-sm-1 control-label no-padding-right"
+								for="form-field-1"><i>*</i>屏蔽词： </label>
+							<div class="col-sm-9">
+								<textarea class="textarea"></textarea>
+							</div>
+						</div>
+						<div class="Button_operation">
+							<button onclick="member_del(this,'1');"
+								class="btn btn-primary radius" type="submit">
+								<i class="fa fa-save "></i>&nbsp;保存
+							</button>
+
+							<button onclick="layer_close();" class="btn btn-default radius"
+								type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+
+</html>
+<script>
+	laydate({
+		elem : '#association_createtime',
+		event : 'focus'
+	});
+	function clickreset() {
+		$(".tab-content input[type$='text']").each(function(n) {
+			$(this).val("");
+		});
+		$("#association_about").val("");
+	}
+
+	function check_info() {
+		var num = 0;
+		var str = "";
+		$(".tab-content input[type$='text']").each(function(n) {
+
+			if ($(this).val() == "") {
+				layer.alert(str += "" + $(this).attr("name") + "不能为空！\r\n", {
+					title : '提示框',
+					icon : 0,
+				});
+				num++;
+				return false;
+			}
+		});
+		if (num > 0) {
+			return false;
+		} else {
+
+			var association_name = $("#association_name").val();
+			var association_contactman = $("#association_contactman").val();
+			var association_phone = $("#association_phone").val();
+			var association_createtime = $("#association_createtime").val();
+			var association_address = $("#association_address").val();
+			var association_province = $("#association_province").val();
+			var association_attribute = $("#association_attribute").val();
+			var association_about = $("#association_about").val();
+			var association_chairman = $("#association_chairman").val();
+			var association_vicechairman = $("#association_vicechairman").val();
+			var association_work = $("#association_work").val();
+			var association_duty = $("#association_duty").val();
+
+			layer
+					.confirm(
+							'确认要创建吗？',
+							function(index) {
+								$
+										.ajax({
+											type : 'post',
+											url : 'http://localhost:8080/aamsystem/alumnusassociation/insertassociation',
+											dataType : 'json',
+											data : {
+												'association_name' : association_name,
+												'association_contactman' : association_contactman,
+												'association_phone' : association_phone,
+												'association_createtime' : association_createtime,
+												'association_province' : association_province,
+												'association_address' : association_address,
+												'association_attribute' : association_attribute,
+												'association_about' : association_about,
+												'association_chairman' : association_chairman,
+												'association_vicechairman' : association_vicechairman,
+												'association_work' : association_work,
+												'association_duty' : association_duty,
+											},
+											success : function(data) {
+												console.debug(data);
+												if (data > 0) {
+													layer.msg('创建成功!', {
+														icon : 1,
+														time : 1000
+													});
+													setTimeout(
+															function() {
+																location.href = "showassociation.html";
+															}, 1000);
+												} else {
+													layer.msg("创建错误");
+												}
+											},
+											error : function() {
+												layer.msg("创建错误");
+											}
+										});
+
+							});
+
+		}
+	};
+</script>

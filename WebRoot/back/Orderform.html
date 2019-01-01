@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="css/style.css" />
+		<link href="assets/css/codemirror.css" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="font/css/font-awesome.min.css" />
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<script src="assets/js/jquery.dataTables.min.js"></script>
+		<script src="assets/js/jquery.dataTables.bootstrap.js"></script>
+		<script src="assets/layer/layer.js" type="text/javascript"></script>
+		<script src="assets/laydate/laydate.js" type="text/javascript"></script>
+		<title>新闻信息</title>
+	</head>
+	<body>
+		<div class="margin clearfix">
+			<div class="Feedback_style">
+				<div class="search_style">
+					<a href="javascript:ovid()" id="ongoing" class="btn btn-sm btn-primary"><i class="fa fa-check"></i>&nbsp;进行中</a>
+					<a href="javascript:ovid()" id="end" class="btn btn-yellow"><i class="fa fa-times"></i>&nbsp;已结束</a>
+					<div class="table_menu_list">
+						<table class="table table-striped table-bordered table-hover" id="sample-table">
+							<thead>
+								<tr>
+									<th width="25px"><label><input type="checkbox" class="ace"><span class="lbl"></span></label></th>
+									<th width="80px">ID</th>
+									<th width="110px">申请人</th>
+									<th width="250px">活动名称</th>
+									<th width="130px">开始时间</th>
+									<th width="130px">结束时间</th>
+									<th width="90px">状态</th>
+									<th width="180px">操作</th>
+								</tr>
+							</thead>
+							<tbody>
+							
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+			<!--活动详细-->
+			<div id="Guestactivity" style="display:none">
+				<div class="content_style">
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动编号： </label>
+						<div class="col-sm-9" style="line-height:30px"  id="activity_id"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动名称： </label>
+						<div class="col-sm-9"  style="line-height:30px" id="activity_name"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动申请时间： </label>
+						<div class="col-sm-9"  style="line-height:30px" id="activity_createtime"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动开始时间： </label>
+						<div class="col-sm-9" style="line-height:30px"  id="activity_starttime"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动结束时间：  </label>
+						<div class="col-sm-9"  style="line-height:30px" id="activity_stoptime"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动主题： </label>
+						<div class="col-sm-9"  style="line-height:30px" id="activity_theme"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动方案： </label>
+						<div class="col-sm-9"  style="line-height:30px" id="activity_programme"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动策划者： </label>
+						<div class="col-sm-9" style="line-height:30px"  id="activity_planner"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动参与者： </label>
+						<div class="col-sm-9"  style="line-height:30px" id="activity_participant"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动申请人： </label>
+						<div class="col-sm-9" style="line-height:30px"  id="activity_auditor"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动审核人： </label>
+						<div class="col-sm-9" style="line-height:30px"  id="activity_proposer"></div>
+					</div>
+					<div class="form-group" style="border-bottom: 1px solid blue "><label class="col-sm-3 control-label no-padding-right" for="form-field-1">活动回复情况： </label>
+						<div class="col-sm-9" style="line-height:30px" id="activity_replyaremark"></div>
+					</div>
+				</div>
+			</div>
+	</body>
+
+</html>
+<script type="text/javascript">
+	jQuery(function($) {
+
+		var oTable1 = $('#sample-table').dataTable({
+			"aaSorting": [[1, "desc"]], //默认第几个排序
+			"searching": false, //右边输入框关闭
+			"bStateSave": true, //状态保存
+			"ajax": {
+	            "url": "http://localhost:8080/aamsystem/activity/getallactivity",
+	            "dataSrc": ""
+	        },
+	        "columns": [
+				{
+				    "sClass": "text-center",
+				    "data": "ID",
+				    "render": function (data, type, full, meta) {
+				        return '<label><input type="checkbox" class="ace"><span class="lbl"></span></label>';
+				    },
+				    "bSortable": false
+				},
+	            { "data": "activity_id" },
+	            { "data": "activity_auditor" },
+	            { "data": "activity_name" },
+	            { "data": "activity_starttime" },
+	            { "data": "activity_stoptime" },
+	            { "data": "activity_state" },
+
+	        ],
+			"aoColumnDefs": [
+				//{"bVisible": false, "aTargets": [ 3 ]} //控制列的隐藏显示
+				{ "orderable": false, "aTargets": [0, 2, 3, 4, 5, 6, 7] }, // 制定列不参与排序
+				{
+                    "targets":7,
+                    "class": "td-manage",
+                    "data": null,
+                    "bSortable": false,
+                    "defaultContent": "<a href='javascript:;'  title='查看' class='showinfo btn btn-xs btn-warning'><i class='fa fa-eye  bigger-120'></i></a><a href='javascript:;  title='删除'  class='delete btn btn-xs btn-pink'><i class='fa fa-trash  bigger-120'></i></a>",
+                } 
+			],
+			"fnRowCallback" : function(nRow, data, iDisplayIndex) {  
+	            /* 用来改写用户权限的 */  
+	             if (data.activity_state == '2')  
+	                   $('td:eq(6)', nRow).html('<span class="btn btn-xs btn-success">进行中</span>');
+	             if (data.activity_state == '3')  
+	                   $('td:eq(6)', nRow).html('<span class="btn btn-xs btn-warning">已结束</span>');  	 
+	               return nRow;  
+	           },  
+		});
+		
+		$('table th input:checkbox').on('click', function() {
+			var that = this;
+			$(this).closest('table').find('tr > td:first-child input:checkbox')
+				.each(function() {
+					this.checked = that.checked;
+					$(this).closest('tr').toggleClass('selected');
+				});
+
+		});
+
+		$('[data-rel="tooltip"]').tooltip({ placement: tooltip_placement });
+		function tooltip_placement(context, source) {
+			var $source = $(source);
+			var $parent = $source.closest('table')
+			var off1 = $parent.offset();
+			var w1 = $parent.width();
+			var off2 = $source.offset();
+			var w2 = $source.width();
+			if(parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+			return 'left';
+		}
+	})
+
+	/*留言查看*/
+	function Guestbook_iew(id) {
+		
+	};
+	/*全选*/
+	$('table th input:checkbox').on('click', function() {
+		var that = this;
+		$(this).closest('table').find('tr > td:first-child input:checkbox')
+			.each(function() {
+				this.checked = that.checked;
+				$(this).closest('tr').toggleClass('selected');
+			});
+
+	});
+	/*活动查看*/
+	$('#sample-table').on('click','.showinfo', function() {
+		
+		var table = $('#sample-table').DataTable();
+	    var data = table.row($(this).parents('tr')).data();
+	    
+	    $("#activity_id").html(data.activity_id);
+	    $("#activity_name").html(data.activity_name);
+	    $("#activity_createtime").html(data.activity_createtime);
+	    $("#activity_starttime").html(data.activity_starttime);
+	    $("#activity_stoptime").html(data.activity_stoptime);
+	    $("#activity_theme").html(data.activity_theme);
+	    $("#activity_programme").html(data.activity_programme);
+	    $("#activity_planner").html(data.activity_planner);
+	    $("#activity_participant").html(data.activity_participant);
+	    $("#activity_auditor").html(data.activity_auditor);
+	    $("#activity_proposer").html(data.activity_proposer);
+	    $("#activity_replyaremark").html(data.activity_replyaremark);
+
+		var index = layer.open({
+			type: 1,
+			title: '活动详细信息',
+			maxmin: true,
+			shadeClose: false,
+			area: ['600px', ''],
+			content: $('#Guestactivity'),
+			btn: ['确定'],
+		});		
+	});
+
+	/*活动-删除*/
+	$('#sample-table').on('click','.delete', function() {
+		
+		var table1 = $('#sample-table').DataTable();
+	    var data = table1.row($(this).parents('tr')).data();
+	    var activity_id= data.activity_id;		
+	    var remove = $(this);   
+		layer.confirm('确认要删除吗？', { icon: 0, }, function(index) {					
+			$.ajax({
+				type : 'post',
+				url : 'http://localhost:8080/aamsystem/activity/deleteactivity',
+				dataType : 'json',
+				data : {
+					'activity_id':activity_id
+				},
+				success : function(data){
+					if(data >0 ){
+						
+						layer.alert('删除成功！', {
+							title: '提示框',
+							icon: 1,
+						});
+						remove.parents('tr').remove();	
+						layer.close(index);
+						layer.msg('已删除!', { icon: 1, time: 1000 });
+					}else{
+						layer.msg("删除失败！");						
+					}
+				},
+				error : function(){
+					layer.msg("系统错误");
+				}
+			}); 
+			
+		});
+	});
+	
+	$("#ongoing").click(function(){
+		$('#sample-table').empty();
+		
+		oTable2 = $('#sample-table').dataTable({
+			"destroy": true,
+			"aaSorting": [[1, "desc"]], //默认第几个排序
+			"searching": false, //右边输入框关闭
+			"bStateSave": true, //状态保存
+			"ajax": {
+	            "url": "http://localhost:8080/aamsystem/activity/getprogressactivity",
+	            "dataSrc": ""
+	        },
+	        "columns": [
+				{
+				    "sClass": "text-center",
+				    "data": "ID",
+				    "render": function (data, type, full, meta) {
+				        return '<label><input type="checkbox" class="ace"><span class="lbl"></span></label>';
+				    },
+				    "bSortable": false
+				},
+				{ "data": "activity_id" },
+	            { "data": "activity_auditor" },
+	            { "data": "activity_name" },
+	            { "data": "activity_starttime" },
+	            { "data": "activity_stoptime" },
+	            { "data": "activity_state" },
+	        ],
+	        "aoColumnDefs": [	         				
+	         	{ "orderable": false, "aTargets": [0, 2, 3, 4, 5, 6, 7] }, // 制定列不参与排序
+	         	  {
+	                "targets":7,
+	                "class": "td-manage",
+	                 "data": null,
+	                 "bSortable": false,
+	                 "defaultContent": "<a href='javascript:;'  title='查看' class='showinfo btn btn-xs btn-warning'><i class='fa fa-eye  bigger-120'></i></a><a href='javascript:;  title='删除'  class='delete btn btn-xs btn-pink'><i class='fa fa-trash  bigger-120'></i></a>",
+	               } ,
+	           ],
+	           "fnRowCallback" : function(nRow, data, iDisplayIndex) {  
+	         	     /* 用来改写用户权限的 */  
+	         	     if (data.activity_state == '2')  
+	         	         $('td:eq(6)', nRow).html('<span class="btn btn-xs btn-success">进行中</span>');
+	         	      if (data.activity_state == '3')  
+	         	          $('td:eq(6)', nRow).html('<span class="btn btn-xs btn-warning">已结束</span>');  	 
+	         	       return nRow;  
+	       },  
+		});	
+	});
+	$("#end").click(function(){
+		
+	$('#sample-table').empty();
+		
+		oTable3 = $('#sample-table').dataTable({
+			"destroy": true,
+			"aaSorting": [[1, "desc"]], //默认第几个排序
+			"searching": false, //右边输入框关闭
+			"bStateSave": true, //状态保存
+			"ajax": {
+	            "url": "http://localhost:8080/aamsystem/activity/getstopactivity",
+	            "dataSrc": ""
+	        },
+	        "columns": [
+				{
+				    "sClass": "text-center",
+				    "data": "ID",
+				    "render": function (data, type, full, meta) {
+				        return '<label><input type="checkbox" class="ace"><span class="lbl"></span></label>';
+				    },
+				    "bSortable": false
+				},
+				{ "data": "activity_id" },
+	            { "data": "activity_auditor" },
+	            { "data": "activity_name" },
+	            { "data": "activity_starttime" },
+	            { "data": "activity_stoptime" },
+	            { "data": "activity_state" },
+	        ],
+	        "aoColumnDefs": [	         				
+	         	{ "orderable": false, "aTargets": [0, 2, 3, 4, 5, 6, 7] }, // 制定列不参与排序
+	         	  {
+	                "targets":7,
+	                "class": "td-manage",
+	                 "data": null,
+	                 "bSortable": false,
+	                 "defaultContent": "<a href='javascript:;'  title='查看' class='showinfo btn btn-xs btn-warning'><i class='fa fa-eye  bigger-120'></i></a><a href='javascript:;  title='删除'  class='delete btn btn-xs btn-pink'><i class='fa fa-trash  bigger-120'></i></a>",
+	               } ,
+	           ],
+	           "fnRowCallback" : function(nRow, data, iDisplayIndex) {  
+	         	     /* 用来改写用户权限的 */  
+	         	     if (data.activity_state == '2')  
+	         	         $('td:eq(6)', nRow).html('<span class="btn btn-xs btn-success">进行中</span>');
+	         	      if (data.activity_state == '3')  
+	         	          $('td:eq(6)', nRow).html('<span class="btn btn-xs btn-warning">已结束</span>');  	 
+	         	       return nRow;  
+	       },  
+		});	
+	});
+
+</script>

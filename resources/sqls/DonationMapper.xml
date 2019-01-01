@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aim.dao.DonationDao">
+
+	<select id="getAllDonation" resultType="com.aim.pojo.Donation">
+		select * from donation
+	</select>
+
+	<update id="modifyState">
+		update donation set donation_state=#{0} where donation_id=#{1}
+	</update>
+
+</mapper>
